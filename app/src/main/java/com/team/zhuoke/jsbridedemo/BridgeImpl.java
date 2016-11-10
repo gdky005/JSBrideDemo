@@ -27,6 +27,24 @@ public class BridgeImpl implements IBridge {
         }
     }
 
+    public static void testThread(WebView webView, JSONObject param, final Callback callback) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(3000);
+                    JSONObject object = new JSONObject();
+                    object.put("key", "value");
+                    callback.apply(getJSONObject(0, "ok", object));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
 
     private static JSONObject getJSONObject(int code, String msg, JSONObject result) {
         JSONObject object = new JSONObject();

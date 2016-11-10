@@ -27,6 +27,21 @@
         </div>
     </li>
     <br/>
+
+    <li>
+        <div>
+            <button onclick="JSBridge.call('bridge','testThread',{},function(res){alert(JSON.stringify(res))})">
+                测试子线程回调
+            </button>
+        </div>
+    </li>
+    <br/>
 </ul>
+
+
+<!--<ul class="list">-->
+    <!---->
+<!--</ul>-->
+
 </body>
 </html>
